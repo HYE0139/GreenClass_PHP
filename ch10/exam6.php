@@ -13,7 +13,7 @@ fclose($filep);
 
 $filep2 = fopen("./exam6_capital.txt", "w");
 fputs($filep2, $str);
-
+ 
 
 
 $file = fopen("./exam6.txt", "r");
