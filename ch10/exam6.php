@@ -23,4 +23,4 @@ while($line2 = fgets($file, 1000)) {
  fputs($openfile, strtoupper($line2));
 }
 
-fclose($file, $openfile);
+fclose($file, $openfile); 
