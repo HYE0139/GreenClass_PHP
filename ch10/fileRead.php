@@ -11,4 +11,4 @@
         print $line."<br>";
     } // fgets 함수가 반복하는 중에 줄이 바뀌거나 파일이 끝이나면 문자열을 반환한다.
 
-    fclose($filep); //
+    fclose($filep);
