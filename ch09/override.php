@@ -27,7 +27,7 @@
     class Professor extends People {
         private $office_No;
 
-        function__constuct($name, $age, $no){
+        function __constuct($name, $age, $no){
             $this->name = $name;
             $this->age = $age;
             $this->office_no = $no;
