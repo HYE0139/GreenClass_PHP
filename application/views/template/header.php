@@ -9,5 +9,5 @@
         <a href="/user/join">SingUp</a>
     <?php } ?>
     <a href="/board/list">List</a>
-
+        
 </div>
