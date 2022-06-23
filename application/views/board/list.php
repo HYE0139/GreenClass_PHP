@@ -18,9 +18,9 @@
             <?php } ?>
         </tbody>
     </table>
-
-    <?php  for($i=1; $i<=$pagingCount; $i++) { ?>
-        <span class="<?=$i===$page ? "pageSelected" : ""?>">
+    
+    <?php  for($i=1; $i<=$this->pagingCount[0]->cnt; $i++) { ?>
+        <span class="<?=$i===$this->page ? "pageSelected" : ""?>">
             <a href="list?page=<?=$i?>"><?=$i?></a>
         </span>
     <?php }  ?>
