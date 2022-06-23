@@ -25,32 +25,26 @@
     <section>
       <div class="contents">
         <div class="tt_header">
-          <h1>공동구매 신청 현황</h1>   
+          <h1>내가 쓴 글</h1>   
         </div>
         <table>
           <thead>
             <tr class="table_title">
-              <th>상품명</th>
-              <th>구매자</th>
-              <th>구매수량</th>
-              <th>입금금액</th>
-              <th>환불계좌</th>
-              <th>우편번호</th>
-              <th>주소</th>
-              <th>신청일</th>
+              <th width="100px"><!--NO.--></th>
+              <th width="470px">제목</th>
+              <th width="120px">작성자</th>
+              <th width="175px">작성일</th>
+              <th width="100px">조회</th>
             </tr>
           </thead>
           <tbody>
             <?php foreach($list as $item) { ?>
               <tr>
-                <td><?=$item["product_nm"]?></td>
-                <td><?=$item['buy_unm']?></a></td>
-                <td><?=$item["buy_inv"]?></td>
-                <td><?=$item["buy_price"]?></td>
-                <td><?=$item["bank_nm"]?> : <?=$item["bank_num"]?>, <?=$item["bank_user"]?></td>
-                <td><?=$item["addr_num"]?></td>
-                <td><?=$item["addr"]?>, <?=$item["addr_part"]?></td>
+                <td><?=$item["i_gonggu"]?></td>
+                <td><a href="gsell_detail.php?i_gonggu=<?=$item['i_gonggu']?>"><?=$item['title']?></a></td>
+                <td><?=$item["nm"]?></td>
                 <td><?=$item["created_at"]?></td>
+                <td>0</td>
               </tr>
             <?php } ?>
           </tbody>

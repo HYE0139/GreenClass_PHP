@@ -1,4 +1,4 @@
-<?php // 각 게시판 검색기능
+<?php
     include_once "db/db_board.php";
     $cat = $_GET["cat"];
     $search = $_GET["search"];

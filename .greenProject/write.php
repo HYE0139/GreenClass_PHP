@@ -5,8 +5,16 @@
      공지 3-->
 <?php
   session_start();
-  $login_user = $_SESSION["login_user"];
-  $i_user = $login_user;
+  // $login_user = $_SESSION["login_user"];
+  // $i_user = $login_user;
+
+  if(isset($_SESSION["login_user"])){
+    $login_user = $_SESSION["login_user"];
+    $nm = $login_user["nm"];
+  } 
+  else {
+    echo "<script>history.back()</script>";
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">

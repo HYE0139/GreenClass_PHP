@@ -1,4 +1,4 @@
-
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +16,7 @@
       <div class="contents">
         <h1>공동구매 폼 만들기</h1>
         <form action="gsell_write_proc.php" method="post" id="sell_form">
+        <input type="text" name="sel_board" value="2">
           <label for="tt" id="title">제목</label>
           <div class="inputarea">
             <input type="text" name="title" id="tt" placeholder="제목을 입력하세요.">

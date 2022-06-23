@@ -16,7 +16,7 @@ section{display:grid; grid-template-columns: 950px 400px; box-sizing: border-box
 .contents .tt_header{width: 950px; border-bottom: 2px solid #67B037; padding: 15px; }
 
 /*페이징, 게시글 목록*/
-.select_box{position: relative; left:855px; width: 76px;}
+.select_box{position: relative; left:850px; width: 76px;}
 .select_box select {padding:5px 7px;}
 
 table{width:100%; margin-top: 15px; font-weight: 100; padding-bottom:25px; border-bottom: 1px solid #eee;}

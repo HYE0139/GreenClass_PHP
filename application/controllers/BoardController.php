@@ -17,15 +17,14 @@
             ];
             //$list = $model->selBoardList();
             $this->addAttribute("list", $model->selBoardList($param));
-            $this->addAttribute("page", $page);
-            $this->addAttribute("pagingCount", $model->pagingCount($param));
+            $this->addAttribute("data", $page);
+            $this->addAttribute("data", $model->pagingCount($param));
             $this->addAttribute("js", ["board/list"]);
             $this->addAttribute("css", ["common"]);
             $this->addAttribute(_TITLE, "리스트");
             $this->addAttribute(_HEADER, $this->getView("template/header.php"));
             $this->addAttribute(_MAIN, $this->getView("board/list.php"));
             $this->addAttribute(_FOOTER, $this->getView("template/footer.php"));
-            
             
             return "template/t1.php"; //view 파일명
             
@@ -64,9 +63,9 @@
             $this->addAttribute("js", ["board/detail"]);
             $this->addAttribute(_TITLE, "게시글");
 
-            
-
             return "board/detail.php";
+           
+
         }
 
         public function del() {

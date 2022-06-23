@@ -1,4 +1,4 @@
-<?php // 댓글
+<?php
     include_once "db/db_board.php";
     $i_user = $_POST["i_user"];
     $i_board = $_POST["i_board"];

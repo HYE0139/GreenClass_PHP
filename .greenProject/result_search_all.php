@@ -1,4 +1,4 @@
-<?php // 메인 페이지 검색바에서 전제 게시글 검색
+<?php
     include_once "db/db_board.php";
     $search = $_GET["search"];
 

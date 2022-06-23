@@ -1,6 +1,6 @@
-<?php // 공구 신청폼
+<?php
   include_once "db/db_gsell.php";
-
+  session_start();
   
   $i_gonggu = $_GET["i_gonggu"];
   $param = [

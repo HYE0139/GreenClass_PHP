@@ -22,7 +22,7 @@ section{display:grid; grid-template-columns: 950px 400px; padding-top:50px;}
 .ctnt{min-height: 400px;padding:15px;
 }
 
-.buy_btn {width: 160px; margin:30px auto;}
+.buy_btn {width: 180px; margin:30px auto;}
 .buy_btn button {padding:10px 15px; background-color:#67B037; border-radius: 15px; border:none; color: #eaf5e3;}
 
 /* 댓 글 */

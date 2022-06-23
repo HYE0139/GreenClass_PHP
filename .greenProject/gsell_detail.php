@@ -1,4 +1,4 @@
-<?php // 공구폼 세부내용
+<?php
   include_once "db/db_gsell.php";
   session_start();
   if(isset($_SESSION["login_user"])){
@@ -33,11 +33,13 @@
           <p><?=$item["created_at"]?></p>
           <p>작성자 : <?=$item["nm"]?></p>
 
-          <?php if(isset($_SESSION["login_user"]) && $login_user["i_user"] === $item["i_user"] || $login_user["i_user"] == 1) { ?>
+          <?php if(isset($_SESSION["login_user"])) {
+            if ($login_user["i_user"] === $item["i_user"] || $login_user["i_user"] == 1) { ?>
             <div class="mod_del"> 
               <a href="mod.php?i_gonggu=<?=$i_gonggu?>"><button>수정</button></a>
               <button onclick="isDel();">삭제</button>
             </div>
+            <?php } ?>
           <?php } ?>
 
           <script>
@@ -45,7 +47,7 @@
             console.log('isDel 실행 됨!!')
             const result = confirm('삭제하시겠습니까?');
             if(result) {
-            location.href = "#?i_gonggu=<?=$i_gonggu?>";
+            location.href = "del.php?i_gonggu=<?=$item['i_gonggu']?>";
               }
             }
           </script>
@@ -66,7 +68,7 @@
         <div class="buy_btn">
           <?php if(isset($_SESSION["login_user"]) && $login_user["i_user"] === $item["i_user"]) { ?>
             <a href="list_gbuy.php?i_gonggu=<?=$i_gonggu?>"><button>신청현황</button></a>
-            <a href="gonggu_list.php"><button>목록으로</button></a>
+            <a href="list_gonggu.php"><button>목록으로</button></a>
           <?php } else { ?>        
           <a href="gbuy_write.php?i_gonggu=<?=$i_gonggu?>"><button>신청하기</button></a>
           <a href="list_gonggu.php"><button>목록으로</button></a>

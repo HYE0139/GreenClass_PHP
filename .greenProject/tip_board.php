@@ -34,7 +34,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>나만의 꿀팁</title>
+    <title>리스트</title>
     <link rel="stylesheet" href="css/board_list.css">
 </head>
 
@@ -100,9 +100,13 @@
             <?php } ?>
           </table>
           <!-- 글쓰기 버튼 -->
-          <div class="write">
-            <input class="sub" type="button" value="글쓰기" onclick="location.href='write.php'">
-          </div>
+            <!-- <input class="sub" type="button" value="글쓰기" onclick="location.href='write.php'"> -->
+            <?php if(isset($login_user)) { ?>
+              <div class="write"><input class="sub" type="button" value="글쓰기" onclick="location.href='write.php'"></div>
+              <?php } else { ?>
+              <div class="write"><input class="sub" type="button" value="글쓰기" onclick="clickBack();"></div>
+            <?php } ?>
+          
           <!-- 페이징 리스트 -->
           <div class="page">
                     <?php for($i=1; $i<=$paging_count; $i++) { ?>
@@ -134,6 +138,12 @@
       </div>
     </section>
   </div>
+  <script>
+    function clickBack() {
+      alert('로그인 후 이용가능합니다.');
+      location.href='login_page.php';
+    }
+  </script>
 </body>
 
 </html>

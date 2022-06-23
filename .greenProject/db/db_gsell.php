@@ -1,7 +1,6 @@
-<?php // 공구게시판 전용
+<?php
   include_once "db_connect.php";
 
-  // 공구 작성 폼
   function ins_sell_board(&$param){
 
     $sel_board = $param["sel_board"];
@@ -29,7 +28,6 @@
     return $result;
   }
 
-  //공구참여 신청폼
   function ins_buy_board(&$param){
 
     $i_gonggu = $param["i_gonggu"];
@@ -63,7 +61,6 @@
     return $result;
   }
 
-// 작성된 공구폼 불러오기
   function sel_gboard(&$param){
     $i_gonggu = $param["i_gonggu"];
     $sql = " SELECT A.title, A.ctnt, A.created_at, A.product_nm, A.price
@@ -110,7 +107,7 @@
     $row = mysqli_fetch_assoc($result);
     return $row["cnt"];
 }
-//공지사항
+
 function top_notice(){
   $conn = get_conn();
   $sql = "SELECT A.i_user, A.i_board, A.title, A.created_at, A.view_at, B.nm, A.c_cnt
@@ -145,7 +142,7 @@ function top_notice(){
 
   }
 
-  /* 공구 게시판 검색 */
+  /* 게시판 검색 */
   function sea_gboard(&$param){
     $conn = get_conn();
     $cat = $param["cat"];
@@ -162,7 +159,7 @@ function top_notice(){
     return $result;
 }
 
-/* 공구 게시판 검색 페이징 */
+/* 게시판 검색 페이징 */
 function search_paging_count(&$param){
     $conn = get_conn();
     $cat = $param["cat"];
@@ -193,7 +190,7 @@ function search_paging_count(&$param){
   return $result;
 }
 
-/*내가 작성한 공구폼 보기*/
+/*내글 보기*/
 function sel_my_gonggu(&$param){
   $conn = get_conn();
   $i_user = $param["i_user"];
@@ -203,4 +200,3 @@ function sel_my_gonggu(&$param){
   mysqli_close($conn);
   return $result;
 }
-

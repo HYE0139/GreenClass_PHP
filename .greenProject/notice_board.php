@@ -1,4 +1,4 @@
-<?php // 공지사항 게시판
+<?php
     include_once "db/db_board.php";
     session_start();
 

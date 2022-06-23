@@ -61,7 +61,7 @@
             $stmt->bindValue(':i_board', $param["i_board"]);
             $stmt->execute();
         }
-
+// 리스트 페이징, 게시글 next-prev
         public function pagingCount($param) {    
             $sql = "SELECT CEIL(COUNT(i_board) / :rowCount) as cnt
                       FROM t_board";
@@ -72,4 +72,6 @@
             
 
         }
+
+        
     }

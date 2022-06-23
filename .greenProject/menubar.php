@@ -43,14 +43,15 @@
         <?php if(isset($_SESSION["login_user"])){ ?>
           <form action="profile_proc.php" method="post" enctype="multipart/form-data" id="info_img">
             <?php
-              $session_img = $_SESSION["login_user"]["profile_img"];
-              $profile_img = $session_img == null ? "basic.png" : $_SESSION["login_user"]["i_user"] . "/" .$session_img;
+              $login_user = $_SESSION["login_user"];
+              $session_img = $login_user["profile_img"];
+              $profile_img = $session_img == null ? "basic.png" : $login_user["i_user"] . "/" .$session_img;
             ?>
             <div class="circular__img wh40">
               <img src="/project/img/profile/<?=$profile_img?>" width="150">
             </div>
           </form>
-          <div><p><?=$nm?>님, 안녕하세요.</p></div>
+          <div><p><?=$login_user["nm"]?>님, 안녕하세요.</p></div>
           <div>
             <a href="">내글보기</a>
             <a href="">회원등급</a>
@@ -79,7 +80,7 @@
         <li>
           <span>필독공지</span>
           <ul class="sub_menu">
-            <li><a href="notice_board.php">공지사항(click)</a></li>
+            <li><a href="notice_board.php">공지사항</a></li>
             <li><a href="#">건의사항</a></li>
           </ul>
         </li>
@@ -89,7 +90,7 @@
           <ul class="sub_menu">
             <li><a href="#">가든용품</a></li>
             <li><a href="#">화원 / 마켓 정보</a></li>
-            <li><a href="tip_board.php">나만의 꿀팁(click)</a></li>
+            <li><a href="tip_board.php">나만의 꿀팁click</a></li>
             <li><a href="#">식물이 아파요</a></li>
             <li><a href="#">묻고 답하기</a></li>
           </ul>
@@ -98,7 +99,7 @@
         <li>
           <span>자랑해요</span>
           <ul class="sub_menu">
-            <li><a href="img_board.php">반려식물(click)</a></li>
+            <li><a href="img_board.php">반려식물click</a></li>
             <li><a href="#">우리집 정원</a></li>
             <li><a href="#">성장일기</a></li>
           </ul>
@@ -117,7 +118,7 @@
           <ul class="sub_menu">
             <li><a href="#">나눔/교환</a></li>
             <li><a href="#">나눔/교환 후기</a></li>
-            <li><a href="list_gonggu.php">공동구매(click)</a></li>
+            <li><a href="list_gonggu.php">공동구매</a></li>
             <li><a href="#">공동구매 후기</a></li>
           </ul>
         </li>     

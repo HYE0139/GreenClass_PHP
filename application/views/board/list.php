@@ -19,7 +19,7 @@
         </tbody>
     </table>
     
-    <?php  for($i=1; $i<=$this->pagingCount->cnt; $i++) { ?>
+    <?php  for($i=1; $i<=$this->data->cnt; $i++) { ?>
         <span class="<?=$i===$this->page ? "pageSelected" : ""?>">
             <a href="list?page=<?=$i?>"><?=$i?></a>
         </span>

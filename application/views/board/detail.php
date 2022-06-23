@@ -17,5 +17,7 @@
         <div>내용 : <?=$this->data->ctnt?></div>
         <div>작성일 : <?=$this->data->created_at?></div>
     </div>
+
+
 </body>
 </html>

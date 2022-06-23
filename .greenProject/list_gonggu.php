@@ -1,4 +1,4 @@
-<?php // 공구게시판 목록
+<?php
   include_once "db/db_gsell.php";
   session_start();
 

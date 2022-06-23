@@ -1,15 +1,8 @@
-<?php // 회원가입
+<?php
 
   include_once "db/db_user.php";
   // 아이디 중복확인
   session_start();
-
-
-  $uid = $_POST["user_id"];
-  $upw = $_POST["user_pw"];
-  $confirm_pw = $_POST["confirm_pw"];
-  $nm = $_POST["nm"];
-  $user_num = $_POST["user_num"];
 
   $wd = "";
   if(isset($uid)) {

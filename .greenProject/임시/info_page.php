@@ -50,7 +50,7 @@
       </div>
     </form>
 
-    <form name ="joinForm" action="info_proc.php" method="post" id="joinForm">
+    <form action="info_proc.php" method="post" id="info_form">
       <div class="user_info">
         <div>
           <input type="hidden" name="i_user" value="<?=$i_user?>">
@@ -82,10 +82,14 @@
         <label for="ck_btn" class="pw_tt"> >> 비밀번호 수정하기</label>
         <div class="pw_input">
           <input type="password" name="user_pw" placeholder="비밀번호" value="<?=$upw?>" onfocus="this.value=''">
-          <input type="password" name="upwConfirm" placeholder="비밀번호 확인" value="<?=$upw?>" onfocus="this.value=''">
-          <div></div><br>
-          <div><span id="checkUpw"></span></div>
+          <input type="password" name="confirm_pw" placeholder="비밀번호 확인" value="<?=$upw?>" onfocus="this.value=''">
         </div>
+
+        <?php
+            if($upw !== $confirm_pw && !empty($confirm_pw)){
+              print "<p>입력하신 비밀번호가 다릅니다.</p>";
+            }
+        ?> 
         
         
       </div>
@@ -93,64 +97,6 @@
       <div class="info_btn">
         <input type="submit" value="저장하기">
       </div>
-
-      <script>
-        let joinForm = document.joinForm;
-        let isEqual = false;
-
-        joinForm.upwConfirm.onchange = function() {
-            let checkUpw = document.getElementById("checkUpw");
-            let str = "";
-
-            if(joinForm.user_pw.value != joinForm.upwConfirm.value) {
-                str = "비밀번호가 일치하지 않습니다";
-                checkUpw.style.color = "red";
-                isEqual = false;
-            } else{
-                str = "비밀번호가 일치합니다";
-                checkUpw.style.color = "green";
-                isEqual = true;
-            }
-            checkUpw.innerHTML = str;
-        };
-        joinForm.user_pw.onchange = function() {
-            let checkUpw = document.getElementById("checkUpw");
-            let str = "";
-
-            if(joinForm.user_pw.value != joinForm.upwConfirm.value) {
-                str = "비밀번호가 일치하지 않습니다";
-                checkUpw.style.color = "red";
-                isEqual = false;
-            } else{
-                str = "비밀번호가 일치합니다";
-                checkUpw.style.color = "green";
-                isEqual = true;
-            }
-            checkUpw.innerHTML = str;
-        };
-
-
-function check(){
-    if(isEqual == false){
-        alert("비밀번호가 일치하지 않습니다.");
-        joinForm.user_pw.value = "";
-        joinForm.upwConfirm.value = "";
-        joinForm.user_pw.focus();
-        return false;
-    }
-    else if(joinForm.user_pw.value.length < 8){
-        alert("비밀번호가 너무 짧습니다.");
-        joinForm.user_pw.value = "";
-        joinForm.upwConfirm.value = "";
-        joinForm.user_pw.focus();
-        return false;
-    }
-    else {
-        return true
-    };
-}
-      </script>
-
     </form>
   </div>
 </body>

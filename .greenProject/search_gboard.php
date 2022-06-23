@@ -1,4 +1,4 @@
-<?php // 공구게시글 검색
+<?php
     include_once "db/db_gsell.php";
     $cat = $_GET["cat"];
     $search = $_GET["search"];

@@ -365,12 +365,15 @@
         $row = mysqli_fetch_assoc($result);
         return $row["cnt"];
     }
-    /*내글보기 */
+    /* 내글보기 */
     function sel_my_board(&$param){
       $conn = get_conn();
       $i_user = $param["i_user"];
-      $sql = "SELECT * FROM t_board
-              WHERE i_user = '$i_user'";
+      $sql = "  SELECT A.i_board, A.title, A.c_cnt, A.created_at, A.view_at, B.nm
+                FROM t_board A
+                INNER JOIN t_user B
+                ON A.i_user = B.i_user
+                WHERE A.i_user = '$i_user'";
       $result = mysqli_query($conn, $sql);
       mysqli_close($conn);
       return $result;

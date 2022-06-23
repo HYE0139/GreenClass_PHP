@@ -1,10 +1,11 @@
-<?php // 갤러리형 게시판
+<?php
     include_once "db/db_board.php";
     session_start();
 
     if(isset($_SESSION["login_user"])){
-    $login_user = $_SESSION["login_user"];
-    $nm = $login_user["nm"];}
+      $login_user = $_SESSION["login_user"];
+      $nm = $login_user["nm"];
+    } 
 
     $page = 1;
     if(isset($_GET["page"])){
@@ -88,10 +89,14 @@
             <a href="img_board.php?page=<?=$i?>"><?=$i?></a>
             </span>
            <?php } ?>
-       </div>
-       <div class="write"><input class="sub" type="button" value="글쓰기" onclick="location.href='write.php'"></div>
+        </div>
+          <!-- <div class="write"><input class="sub" type="button" value="글쓰기" onclick="location.href='write.php'"></div> -->
+            <?php if(isset($login_user)) { ?>
+              <div class="write"><input class="sub" type="button" value="글쓰기" onclick="location.href='write.php'"></div>
+              <?php } else { ?>
+              <div class="write"><input class="sub" type="button" value="글쓰기" onclick="clickBack();"></div>
+            <?php } ?>
       </div>
-
       <?php include_once "menubar.php";?>
  
       <div id="footer">
@@ -101,12 +106,12 @@
     </div>
     
     </section>
-
-    
-
   </div>
-
-   
-  
+  <script>
+    function clickBack() {
+      alert('로그인 후 이용가능합니다.');
+      location.href='login_page.php';
+    }
+  </script>
 </body>
 </html>

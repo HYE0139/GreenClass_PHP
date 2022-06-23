@@ -10,7 +10,7 @@ header .top_menu a{color:#000; margin-left:15px;}
       <div class="top">
         <h1 class="top_logo"><a href="main_page.php">베란다가든</a></h1>
         <div class="top_menu"> <!--로그인 상태일때는 내글보기/내정보/로그아웃-->
-          <?php session_start(); $nm= $login_user["nm"]; if(isset($_SESSION["login_user"])) { ?>
+          <?php  if(isset($_SESSION["login_user"])) { ?>
             <a href="info_page.php">내정보</a>
             <a href="logout.php">로그아웃</a>
           <?php } else { ?>

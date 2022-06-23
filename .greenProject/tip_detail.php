@@ -3,8 +3,8 @@
     session_start();
     
     if(isset($_SESSION["login_user"])){
-    $login_user = $_SESSION["login_user"];
-    $nm = $login_user["nm"];
+      $login_user = $_SESSION["login_user"];
+      $nm = $login_user["nm"];
     }
 
     $i_board = $_GET["i_board"];
@@ -42,11 +42,13 @@
             <p><?=$result["created_at"]?></p>
             <p>작성자 : <?=$result["nm"]?></p>
 
-            <?php if(isset($_SESSION["login_user"]) && $login_user["i_user"] === $item["i_user"] || $login_user["i_user"] == 1) { ?>
+            <?php if(isset($_SESSION["login_user"])) {
+              if ($login_user["i_user"] === $result["i_user"] || $login_user["i_user"] == 1) { ?>
               <div class="mod_del"> 
-                <a href="tip_mod.php?i_board=<?=$i_board?>"><button>수정</button></a>
+                <a href="mod.php?i_gonggu=<?=$i_gonggu?>"><button>수정</button></a>
                 <button onclick="isDel();">삭제</button>
               </div>
+              <?php } ?>
             <?php } ?>
 
            <script>
@@ -54,7 +56,7 @@
                 console.log('isDel 실행 됨!!')
                 const result = confirm('삭제하시겠습니까?');
                 if(result) {
-                location.href = "tip_del.php?i_board=<?=$item['i_board']?>";
+                location.href = "tip_del.php?i_board=<?=$result['i_board']?>";
                 }
               }
             </script>
@@ -80,7 +82,7 @@
                 <div class="com_cr"><li><?=$item["created_at"]?></li></div>
 
                 <!--댓글 작성자일 경우 보이는 삭제/수정 버튼-->
-                <?php if($nm == $item["nm"]){?>
+                <?php if($result == $item["nm"]){?>
                   <a class="del_com" href="del_com.php?i_board=<?=$item["i_board"]?>&i_com=<?=$item["i_com"]?>">삭제</a>
                 <?php } ?>
               </ul>

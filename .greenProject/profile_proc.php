@@ -1,4 +1,4 @@
-<?php // 유저 프로필
+<?php
     include_once "db/db_user.php";
     session_start();
     
@@ -6,11 +6,13 @@
 
     $login_user = $_SESSION["login_user"];  
 
-    var_dump($_FILES);  
+    //var_dump($_FILES); 확인용
+
     if($_FILES["img"]["name"] === "") {
-        echo "이미지 없음";
-        exit;
-    }  
+       echo "<script>alert('이미지를 선택해주세요.')</script>";
+        echo "<script>history.back();</script>";
+        
+    } else {
 
     function gen_uuid_v4() {  
         return sprintf('%04x%04x-%04x-%04x-%04x-%04x%04x%04x'
@@ -55,6 +57,5 @@
         $login_user["profile_img"] = $target_filenm;
         $_SESSION["login_user"] = $login_user;
         Header("Location: info_page.php");
-    } else { 
-        echo "업로드 실패";
     }
+ }
