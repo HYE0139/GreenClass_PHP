@@ -16,7 +16,9 @@
             ];
             //$list = $model->selBoardList();
             $this->addAttribute("list", $model->selBoardList($param));
-            $pagingCount = $model->pagingCount($param);
+            $this->addAttribute("page", $page);
+            $this->addAttribute("pagingCount", $model->pagingCount($param));
+            //$pagingCount = $model->pagingCount($param);
             $this->addAttribute("js", ["board/list"]);
             $this->addAttribute("css", ["common"]);
 
@@ -24,7 +26,7 @@
             $this->addAttribute(_HEADER, $this->getView("template/header.php"));
             $this->addAttribute(_MAIN, $this->getView("board/list.php"));
             $this->addAttribute(_FOOTER, $this->getView("template/footer.php"));
-            print_r($pagingCount);
+           
             
             return "template/t1.php"; //view 파일명
             
@@ -36,6 +38,7 @@
             $this->addAttribute(_HEADER, $this->getView("template/header.php"));
             $this->addAttribute(_MAIN, $this->getView("board/write.php"));
             $this->addAttribute(_FOOTER, $this->getView("template/footer.php"));
+            print_r($_SESSION[_LOGINUSER]);
 
             return "template/t1.php";
         }
@@ -50,7 +53,6 @@
 
             $model = new boardModel();
             $model -> insboard($param);
-            
             return "redirect:/board/list";
         }
 
