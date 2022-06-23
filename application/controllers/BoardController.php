@@ -1,5 +1,6 @@
 <?php
-    namespace application\controllers; //내부 식별자에 사용될 수 있는 유효범위
+    
+    namespace application\controllers; 
     use application\models\BoardModel;
 
     class BoardController extends Controller{ //Controller.php
@@ -18,15 +19,13 @@
             $this->addAttribute("list", $model->selBoardList($param));
             $this->addAttribute("page", $page);
             $this->addAttribute("pagingCount", $model->pagingCount($param));
-            //$pagingCount = $model->pagingCount($param);
             $this->addAttribute("js", ["board/list"]);
             $this->addAttribute("css", ["common"]);
-
             $this->addAttribute(_TITLE, "리스트");
             $this->addAttribute(_HEADER, $this->getView("template/header.php"));
             $this->addAttribute(_MAIN, $this->getView("board/list.php"));
             $this->addAttribute(_FOOTER, $this->getView("template/footer.php"));
-           
+            
             
             return "template/t1.php"; //view 파일명
             

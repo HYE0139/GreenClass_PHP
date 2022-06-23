@@ -68,8 +68,8 @@
             $stmt = $this->pdo->prepare($sql);
             $stmt->bindValue(':rowCount', $param["rowCount"]);
             $stmt->execute();
-            $row = $stmt->fetchAll(PDO::FETCH_OBJ);
-            return $row;
+            return $stmt->fetch(PDO::FETCH_OBJ);
+            
 
         }
     }

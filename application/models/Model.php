@@ -1,4 +1,9 @@
 <?php
+/*
+    Model : 애플리케이션의 정보, 데이타
+    데이타베이스, 처음의 정의하는 상수, 초기화값, 변수 등의
+     DATA, 정보들의 가공을 책임지는 컴포넌트
+*/
 namespace application\models;
 
 use Exception; // 예외처리
